@@ -12,7 +12,7 @@ Hey everyone, this is my first blog and my english is very **good**....lol.
 Let's dive in!
 ===
 
-For me, getting the **user** on this box was more fun and difficult than getting **root**. I didn't had much exposure in **deserialization** vulnerability before, but after doing this machine, I am much more confident in exploiting it. So let's start **pentesting**.
+For me, getting the **user** on this box was more fun and challenging than getting **root**. I didn't had much exposure in **deserialization** vulnerability before, but after doing this machine, I am much more confident in exploiting it. So let's start **pentesting**.
 
 First, I like to go directly to the browser and see if any website is hosted on the machine because most of the time it is. But this time, it wasn't. So I started with **Nmap** scan.
 
@@ -63,11 +63,11 @@ Let's sum it up till now, so basically the server is decoding the cookie, unseri
 
 ![concept]({{site.baseurl}}/assets/celestial/concept.png){:class="img-responsive"}
 
-So just to understand the basics of deserialization vulnerability I created an object, add a simple `exec()` method inside and serialized it. Then I put that serialized string inside `unserialize()` method, executed it and the `exec()` method got executed(above screenshot). So I assumed this is what is happening on the server and without wasting any time, I created a nodejs reverse shell using this [tool](https://github.com/ajinabraham/Node.Js-Security-Course/blob/master/nodejsshell.py), which gave this output. 
+So just to understand the basics of deserialization vulnerability I created an object, add a simple `exec()` method inside and serialized it. Then I put that serialized string inside `unserialize()` method, executed it and the `exec()` method got executed(above screenshot). So I assumed this is what is happening on the server and without wasting any time, I created a nodejs reverse shell payload using this [tool](https://github.com/ajinabraham/Node.Js-Security-Course/blob/master/nodejsshell.py), which gave this output. 
 
 ![revshell]({{site.baseurl}}/assets/celestial/revshell.png){:class="img-responsive"}
 
-Then I **serialized** the above output manually, put it in "username" field of json data and encoded it.
+Then I **serialized** the above output manually (if we don't serialize it, then the paylod will not get executed while deserialization), put it in "username" field of json data and encoded it.
 
 ![finalpayload]({{site.baseurl}}/assets/celestial/finalpayload.png){:class="img-responsive"}
 
@@ -83,9 +83,9 @@ There were 2 interesting files, `output.txt`(owned by root) in user dir and `scr
 
 ![2files]({{site.baseurl}}/assets/celestial/2files.png){:class="img-responsive"}
 
-As the output of `script.py` was shown inside `output.txt`, i thought there must be a **cron job** running this python script as **root** and putting the output in txt file. So I overwrite the script with my own, which reads the root.txt from root dir.
+As the output of `script.py` was shown inside `output.txt`, i thought there must be a **cron job** running this python script as **root** and putting the output in txt file. So I overwrite the script with my own payload, which reads the root.txt from root dir.
 
- Surprisingly, the script got executed as `root` and output the flag in `output.txt`
+ Surprisingly, the script got executed as `root` and outputted the flag in `output.txt`
 
 ![pscrip]({{site.baseurl}}/assets/celestial/pscrip.png){:class="img-responsive"}
 
