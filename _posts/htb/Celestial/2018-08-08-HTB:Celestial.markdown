@@ -5,14 +5,16 @@ date:   2018-08-08
 categories: HTB
 ---
 
+If you somehow stumbled upon this blog, then you probably know what [HTB](https://hackthebox.eu) is (May god bless you if you **don't**).
+
 `_Disclaimer: I’m a noob._`
 
-Hey everyone, this is my first blog and my english is very **good**....lol. 
+Hey everyone, this is my first blog and i'll not mind if you start judging my english while reading cause i know it is very **good**....lol. 
 
 Let's dive in!
 ===
 
-For me, getting the **user** on this box was more fun and challenging than getting **root**. I didn't had much exposure in **deserialization** vulnerability before, but after doing this machine, I am much more confident in exploiting it. So let's start **pentesting**.
+For me, getting the **user** on this box was more fun and challenging than getting **root**. I didn't had much exposure in **deserialization** vulnerability before, like whenever someone talk about it, i'm like...**WTF** is "deserialization". But after doing this machine, I am much more confident in exploiting it. So let's start **pentesting**.
 
 First, I like to go directly to the browser and see if any website is hosted on the machine because most of the time it is. But this time, it wasn't. So I started with **Nmap** scan.
 
@@ -29,13 +31,13 @@ PORT     STATE SERVICE VERSION
 
 ``` 
 
-Turns out i was partially right, http service was running but on port 3000 and the server was **Node.js**. Going to the site shows this 404 text
+Turns out i was partially right, http service was running but on port 3000 and the server was **Node.js** (I hate nodejs websites). Going to the site shows this 404 **text**.
 
 ![index]({{site.baseurl}}/assets/celestial/index.png){:class="img-responsive"}
 
 Yup, Nothing here and source code is also clean. 
 
-_"When there is nothing in front, then there is something going on in the back"_. So let's intercept the request using **burp**.
+_"When there is nothing in front, there is something going on in the back"_. So let's intercept the request using **burp**.
 
 On the first request, the server was **setting** the cookie in profile parameter (see below)
 
@@ -49,7 +51,7 @@ As you can see above, we didn't get that 404 with the cookie but a different res
 
 ![ini_b64]({{site.baseurl}}/assets/celestial/ini_b64.png){:class="img-responsive"}
 
-After decoding, we can see above that the data is in JSON format. Looking at the decoded json data and the response together, I noticed that the server is first decoding the profile parameter of cookie, then parsing the json data and displaying  the data in a specific format. So i replaced `Dummy` with `admin` and `2` with `45` in json data, encoded and fired it. The server responded as expected (below).
+After decoding, we can see above that the data is in JSON format. Looking at the decoded json data and the response together, I noticed that the server is first decoding the profile parameter of cookie, then parsing the json data and displaying it in a specific format. So i replaced `Dummy` with `admin` and `2` with `45` in json data, encoded and fired it. The server responded as expected (below).
 
 ![admin]({{site.baseurl}}/assets/celestial/admin.png){:class="img-responsive"}
 
@@ -59,11 +61,11 @@ So just for curiosity, I tried **simple xss** (`<script>alert(1)</script>`) and 
 
 Damn, that's a lot of info to digest but if you try to understand it, you can see there is an error while **unserializing** the data. The word `unserialize` gave me a big hint.
 
-Let's sum it up till now, so basically the server is decoding the cookie, unserialzing, and displaying it. The only thing that can go wrong, is during `unserialization` of **user** data. So I started Googl-fu about nodejs serialization and found a module called [serialize](https://www.npmjs.com/package/node-serialize). To exploit it, i first have to understand it. I downloaded **nodejs**, installed the **serialize** module and started playing with it. First, i understood how serialization and unserialization happens and then i tried **exploiting** it.
+Let's sum up whatever we've gathered till now. So basically the server is decoding the cookie, unserialzing, and simply displaying it. The only thing that can go wrong, is during `unserialization` of **user** data. So I started Googl-fu about nodejs serialization and found a module called [serialize](https://www.npmjs.com/package/node-serialize). To exploit it, i first have to understand it. I downloaded **nodejs**, installed the **serialize** module and started playing with it. First, i understood how serialization and unserialization happens and then i tried **exploiting** it.
 
 ![concept]({{site.baseurl}}/assets/celestial/concept.png){:class="img-responsive"}
 
-So just to understand the basics of deserialization vulnerability I created an object, add a simple `exec()` method inside and serialized it. Then I put that serialized string inside `unserialize()` method, executed it and the `exec()` method got executed(above screenshot). So I assumed this is what is happening on the server and without wasting any time, I created a nodejs reverse shell payload using this [tool](https://github.com/ajinabraham/Node.Js-Security-Course/blob/master/nodejsshell.py), which gave this output. 
+So just to understand the basics of deserialization vulnerability I created an object, add a simple `exec()` (which **exec**utes system commands) method with "malicious" string inside and serialized it. Then I put that serialized string inside `unserialize()` method, executed it and the `exec()` method got executed(above screenshot). So I assumed this is what is happening on the server and without wasting any time, I created a nodejs reverse shell payload using this [tool](https://github.com/ajinabraham/Node.Js-Security-Course/blob/master/nodejsshell.py), which gave this output. 
 
 ![revshell]({{site.baseurl}}/assets/celestial/revshell.png){:class="img-responsive"}
 
