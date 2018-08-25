@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "HTB:Celestial"
-date:   2018-08-08
+title:  "HTB:Celestial Write-Up"
+date:   2018-08-25
 categories: HTB
 ---
 
