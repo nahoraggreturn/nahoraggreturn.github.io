@@ -4,8 +4,6 @@
 
 layout: home
 ---
-Yeah, it's pretty empty here but i finally started sharing my **dirty** knowledge... 
+Sharing Is Caring :)
 
-RGVjb2RlZCFHb3RTb21ldGhpbmc/
-
-More posts on my medium page [nahoragg](https://medium.com/@nahoragg).
+If you prefer [medium](https://medium.com/@nahoragg).

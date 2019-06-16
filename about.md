@@ -1,12 +1,26 @@
 ---
 layout: page
-title: About
+title: About Me
 permalink: /about/
 ---
 
-(HackTheBox writeup's, Bug Bounties, Pentesting, Deep diving into any security concepts)
-Will Update it...feeling lazy now!
+I like to spend more time on things, to understand them until they don't understand me and start giving me what they aren't programmed to.
 
-~$ whoami
+Found Vulnerabilties in Yahoo, Twitter, Goldman Sachs, Matomo, Pixiv, etc.
 
-515342756232396949475a70626d5270626d6367626d3976596942696457647a4948527649484e6c593356795a53423061475567615735305a584a755a5851675a6e4a76625342766447686c636942756232396963794238494578706333526c5a4342706269425564326c30644756794c43424e59585276625738734946426863334e68646d56794947563059794249595778734945396d49455a68625755676643424d62335a6c494752766157356e49454e5552694268626d516753465243
+~ Bug Bounty Hunter [@Hackerone](https://hackerone.com/nahoragg)
+
+~ Synack Red Team Member
+
+~ Sharing InfoSec Stuff: [nahoragg](https://twitter.com/nahoragg)
+
+~ I Like CTF *[Develop > Play]*
+
+~ Exploring Car Hacking 
+
+~ Handle: [nahoragg](https://www.google.com/search?q=nahoragg)
+
+Talks:
+===
+
+[How Not To Suck At Cloud Security](https://www.slideshare.net/rohanaggarwal18/how-not-to-suck-at-cloud-security-rohan-aggarwal)*[Implementing Security In Cloud Infrastructure]* **@Global Microsoft Azure BootCamp**
