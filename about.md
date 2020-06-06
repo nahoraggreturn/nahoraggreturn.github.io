@@ -24,3 +24,5 @@ Talks:
 ===
 
 [How Not To Suck At Cloud Security](https://www.slideshare.net/rohanaggarwal18/how-not-to-suck-at-cloud-security-rohan-aggarwal)*[Implementing Security In Cloud Infrastructure]* **@Global Microsoft Azure BootCamp**
+
+[Car Hacking On Simulation](https://sector.ca/sessions/car-hacking-on-simulation/)*[Understanding & Exploiting CANBUS]* **@SecTor 2019, Canada**
