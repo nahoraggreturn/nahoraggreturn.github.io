@@ -23,6 +23,8 @@ Found Vulnerabilties in Yahoo, Twitter, Goldman Sachs, Matomo, Pixiv, etc.
 Talks:
 ===
 
-[How Not To Suck At Cloud Security](https://www.slideshare.net/rohanaggarwal18/how-not-to-suck-at-cloud-security-rohan-aggarwal)*[Implementing Security In Cloud Infrastructure]* **@Global Microsoft Azure BootCamp**
+[Recon – The Road Less Travelled](https://sector.ca/sessions/recon-the-road-less-traveled/) **@SecTor 2020, Canada**
 
 [Car Hacking On Simulation](https://sector.ca/sessions/car-hacking-on-simulation/)*[Understanding & Exploiting CANBUS]* **@SecTor 2019, Canada**
+
+[How Not To Suck At Cloud Security](https://www.slideshare.net/rohanaggarwal18/how-not-to-suck-at-cloud-security-rohan-aggarwal)*[Implementing Security In Cloud Infrastructure]* **@Global Microsoft Azure BootCamp**
