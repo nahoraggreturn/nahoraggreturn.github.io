@@ -18,6 +18,8 @@ Found Vulnerabilties in Yahoo, Twitter, Goldman Sachs, Matomo, Pixiv, etc.
 
 ~ Exploring Car Hacking 
 
+~ [Learning Game Hacking](https://twitter.com/nahoragg/status/1313542481473011712)
+
 ~ Handle: [nahoragg](https://www.google.com/search?q=nahoragg)
 
 Talks:
