@@ -4,9 +4,7 @@ title: About Me
 permalink: /about/
 ---
 
-I like to spend more time on things, to understand them until they don't understand me and start giving me what they aren't programmed to.
-
-Found Vulnerabilties in Yahoo, Twitter, Goldman Sachs, Matomo, Pixiv, etc.
+Found Vulnerabilties in Apple, Yahoo, Twitter, Goldman Sachs, Matomo, Pixiv, etc.
 
 ~ Bug Bounty Hunter [@Hackerone](https://hackerone.com/nahoragg)
 
